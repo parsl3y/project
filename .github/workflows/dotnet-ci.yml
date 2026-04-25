@@ -93,12 +93,10 @@ jobs:
 
       - name: Install k6
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wget curl
-          curl https://dl.k6.io/release.key | sudo gpg --dearmor -o /usr/share/keyrings/k6-archive-keyring.gpg
-          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
-          sudo apt-get update
-          sudo apt-get install -y k6
+          wget https://github.com/grafana/k6/releases/latest/download/k6-latest-linux-amd64.tar.gz
+          tar -xvf k6-latest-linux-amd64.tar.gz
+          sudo mv k6-latest-linux-amd64/k6 /usr/local/bin/
+          k6 version
 
       - name: Run k6
         run: k6 run load-test.js --vus 10 --duration 30s \
