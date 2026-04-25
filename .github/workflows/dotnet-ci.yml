@@ -104,7 +104,8 @@ jobs:
 
       - name: Run k6
         run: k6 run load-test.js --vus 10 --duration 30s \
-             --env BASE_URL=http://localhost:5000
+             --env BASE_URL=http://localhost:5000 \
+             --out json=k6-summary.json
         continue-on-error: true
 
       - uses: actions/upload-artifact@v4
