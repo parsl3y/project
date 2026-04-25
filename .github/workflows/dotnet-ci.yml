@@ -94,8 +94,11 @@ jobs:
       - name: Install k6
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget
-          wget -qO - https://dl.k6.io/rubygems-k6 | sudo bash
+          sudo apt-get install -y wget curl
+          curl https://dl.k6.io/release.key | sudo gpg --dearmor -o /usr/share/keyrings/k6-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update
+          sudo apt-get install -y k6
 
       - name: Run k6
         run: k6 run load-test.js --vus 10 --duration 30s \
