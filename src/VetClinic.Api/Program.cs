@@ -65,6 +65,12 @@ if (!app.Environment.IsEnvironment("Testing"))
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<VetClinicDbContext>();
     db.Database.Migrate();
+    
+    // ── 4. Seeding даних для розробки ──
+    if (app.Environment.IsDevelopment())
+    {
+        await DataSeeder.SeedAsync(db);
+    }
 }
 
 // ── 4. Контролери — ОСТАННІМИ ──

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+48v8Y6gj50=",
+  "dgSpecHash": "ccfnYk0dKtU=",
   "success": true,
   "projectFilePath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TUF\\.nuget\\packages\\autofixture\\4.18.1\\autofixture.4.18.1.nupkg.sha512",
+    "C:\\Users\\TUF\\.nuget\\packages\\bogus\\35.6.1\\bogus.35.6.1.nupkg.sha512",
     "C:\\Users\\TUF\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\TUF\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
     "C:\\Users\\TUF\\.nuget\\packages\\docker.dotnet\\3.125.15\\docker.dotnet.3.125.15.nupkg.sha512",
