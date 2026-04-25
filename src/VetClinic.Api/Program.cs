@@ -70,3 +70,5 @@ if (!app.Environment.IsEnvironment("Testing"))
 // ── 4. Контролери — ОСТАННІМИ ──
 app.MapControllers();
 app.Run();
+
+public partial class Program { }
