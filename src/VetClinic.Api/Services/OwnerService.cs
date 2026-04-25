@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using VetClinic.Api.Data;
 using VetClinic.Api.DTOs;
 using VetClinic.Api.Entities;
+using VetClinic.Api.Exceptions;
 
 namespace VetClinic.Api.Services;
 
