@@ -62,7 +62,7 @@ jobs:
         run: echo "All tests passed"
 
   performance:
-    if: github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
+    if: always()
     needs: full-pipeline
     runs-on: ubuntu-latest
     services:
