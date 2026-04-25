@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using VetClinic.Api.Data;
+using VetClinic.Api.Exceptions;
+using VetClinic.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +10,7 @@ builder.Services.AddDbContext<VetClinicDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<OwnerService>();
+builder.Services.AddScoped<AppointmentService>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -19,6 +22,22 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseExceptionHandler(errApp => errApp.Run(async ctx =>
+{
+    var ex = ctx.Features
+        .Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>()?.Error;
+
+    ctx.Response.ContentType = "application/json";
+    ctx.Response.StatusCode = ex switch
+    {
+        NotFoundException    => StatusCodes.Status404NotFound,
+        BusinessException    => StatusCodes.Status422UnprocessableEntity,
+        _                    => StatusCodes.Status500InternalServerError
+    };
+
+    await ctx.Response.WriteAsJsonAsync(new { error = ex?.Message });
+}));
 
 app.UseHttpsRedirection();
 
