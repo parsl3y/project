@@ -93,9 +93,10 @@ jobs:
 
       - name: Install k6
         run: |
-          wget https://github.com/grafana/k6/releases/latest/download/k6-latest-linux-amd64.tar.gz
-          tar -xvf k6-latest-linux-amd64.tar.gz
-          sudo mv k6-latest-linux-amd64/k6 /usr/local/bin/
+          K6_VERSION=$(curl -s https://api.github.com/repos/grafana/k6/releases/latest | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/')
+          wget https://github.com/grafana/k6/releases/download/${K6_VERSION}/k6-${K6_VERSION}-linux-amd64.tar.gz
+          tar -xvf k6-${K6_VERSION}-linux-amd64.tar.gz
+          sudo mv k6-${K6_VERSION}-linux-amd64/k6 /usr/local/bin/
           k6 version
 
       - name: Run k6
