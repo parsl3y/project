@@ -8,9 +8,21 @@ namespace VetClinic.Api.Controllers;
 [Route("api/appointments")]
 public class AppointmentsController(AppointmentService svc) : ControllerBase
 {
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] CreateAppointmentRequest req)
+    {
+        var result = await svc.CreateAsync(req);
+        return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+    }
+
     [HttpGet]
-    public async Task<IActionResult> GetByDate([FromQuery] DateOnly date) =>
-        Ok(await svc.GetByDateAsync(date));
+    public async Task<IActionResult> GetByDate([FromQuery] string date)
+    {
+        if (!DateOnly.TryParse(date, out var parsedDate))
+            return BadRequest("Невірний формат дати. Використовуй YYYY-MM-DD");
+
+        return Ok(await svc.GetByDateAsync(parsedDate));
+    }
 
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(Guid id)
@@ -19,25 +31,10 @@ public class AppointmentsController(AppointmentService svc) : ControllerBase
         return result is null ? NotFound() : Ok(result);
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Create([FromBody] CreateAppointmentRequest req)
+    [HttpPatch("{id:guid}/cancel")]
+    public async Task<IActionResult> Cancel(Guid id)
     {
-        var result = await svc.CreateAsync(req);
-        return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
-    }
-
-    [HttpPut("{id:guid}")]
-    public async Task<IActionResult> Update(Guid id,
-        [FromBody] UpdateAppointmentRequest req)
-    {
-        var result = await svc.UpdateAsync(id, req);
-        return Ok(result);
-    }
-
-    [HttpDelete("{id:guid}")]
-    public async Task<IActionResult> Delete(Guid id)
-    {
-        await svc.DeleteAsync(id);
+        await svc.CancelAsync(id);
         return NoContent();
     }
 }
