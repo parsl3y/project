@@ -3903,8 +3903,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
-              "projectPath": "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj"
+            "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
+              "projectPath": "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj"
             }
           }
         }

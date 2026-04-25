@@ -4,14 +4,14 @@
     "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj": {}
   },
   "projects": {
-    "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
+    "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj",
+        "projectUniqueName": "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj",
         "projectName": "VetClinic.Api",
-        "projectPath": "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj",
+        "projectPath": "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj",
         "packagesPath": "C:\\Users\\TUF\\.nuget\\packages\\",
-        "outputPath": "E:\\Programming\\project\\src\\VetClinic.Api\\obj\\",
+        "outputPath": "e:\\Programming\\project\\src\\VetClinic.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TUF\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -526,8 +526,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
-                "projectPath": "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj"
+              "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
+                "projectPath": "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj"
               }
             }
           }
