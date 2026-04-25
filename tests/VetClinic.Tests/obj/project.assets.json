@@ -3851,11 +3851,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+      "projectUniqueName": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
       "projectName": "VetClinic.Tests",
-      "projectPath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+      "projectPath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
       "packagesPath": "C:\\Users\\TUF\\.nuget\\packages\\",
-      "outputPath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\obj\\",
+      "outputPath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TUF\\AppData\\Roaming\\NuGet\\NuGet.Config"
