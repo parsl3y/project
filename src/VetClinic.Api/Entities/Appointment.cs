@@ -1,5 +1,8 @@
+using System.Text.Json.Serialization;
+
 namespace VetClinic.Api.Entities;
 
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum AppointmentStatus { Scheduled, Completed, Cancelled }
 
 public class Appointment

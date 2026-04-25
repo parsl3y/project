@@ -1,5 +1,8 @@
+using System.Text.Json.Serialization;
+
 namespace VetClinic.Api.Entities;
 
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum Species { Dog, Cat, Bird, Other }
 
 public class Pet

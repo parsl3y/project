@@ -11,8 +11,10 @@ public class AppointmentService(VetClinicDbContext db)
     public static void ValidateFutureDate(DateOnly date)
     {
         if (date <= DateOnly.FromDateTime(DateTime.UtcNow))
-            throw new BusinessException("Дата прийому повинна бути у майбутньому.");
+            throw new BusinessException(
+                "Дата прийому повинна бути у майбутньому.");
     }
+
 
     public static void ValidateNotCancelled(Appointment appointment)
     {
@@ -20,6 +22,7 @@ public class AppointmentService(VetClinicDbContext db)
             throw new BusinessException(
                 "Скасований запис не підлягає зміні. Створіть новий запис.");
     }
+
 
     public async Task<AppointmentResponse> CreateAsync(CreateAppointmentRequest req)
     {
@@ -50,35 +53,6 @@ public class AppointmentService(VetClinicDbContext db)
         return ToResponse(appointment);
     }
 
-    public async Task<AppointmentResponse> UpdateAsync(Guid id, UpdateAppointmentRequest req)
-    {
-        var appointment = await db.Appointments.FindAsync(id)
-            ?? throw new NotFoundException($"Запис Id={id} не знайдено.");
-
-        ValidateNotCancelled(appointment);
-
-        if (req.Date.HasValue)
-        {
-            ValidateFutureDate(req.Date.Value);
-
-            var conflict = await db.Appointments.AnyAsync(a =>
-                a.PetId == appointment.PetId &&
-                a.Date  == req.Date.Value &&
-                a.Id    != id);
-            if (conflict)
-                throw new BusinessException(
-                    $"Тварина вже має запис на {req.Date.Value:dd.MM.yyyy}.");
-        }
-
-        if (req.VetName is not null) appointment.VetName = req.VetName;
-        if (req.Date.HasValue)       appointment.Date    = req.Date.Value;
-        if (req.Time.HasValue)       appointment.Time    = req.Time.Value;
-        if (req.Reason is not null)  appointment.Reason  = req.Reason;
-        if (req.Status.HasValue)     appointment.Status  = req.Status.Value;
-
-        await db.SaveChangesAsync();
-        return ToResponse(appointment);
-    }
 
     public async Task<List<AppointmentResponse>> GetByDateAsync(DateOnly date) =>
         await db.Appointments
@@ -86,31 +60,26 @@ public class AppointmentService(VetClinicDbContext db)
             .Select(a => ToResponse(a))
             .ToListAsync();
 
+
     public async Task<AppointmentResponse?> GetByIdAsync(Guid id)
     {
-        var a = await db.Appointments.FindAsync(id);
-        return a is null ? null : ToResponse(a);
+        var appointment = await db.Appointments.FindAsync(id);
+        return appointment is null ? null : ToResponse(appointment);
     }
 
-    public async Task DeleteAsync(Guid id)
-    {
-        var a = await db.Appointments.FindAsync(id)
-            ?? throw new NotFoundException($"Запис Id={id} не знайдено.");
-        db.Appointments.Remove(a);
-        await db.SaveChangesAsync();
-    }
-
-    private static AppointmentResponse ToResponse(Appointment a) =>
-        new(a.Id, a.PetId, a.VetName, a.Date, a.Time, a.Reason, a.Status);
 
     public async Task CancelAsync(Guid id)
     {
-    var appointment = await db.Appointments.FindAsync(id)
-        ?? throw new NotFoundException($"Запис Id={id} не знайдено.");
+        var appointment = await db.Appointments.FindAsync(id)
+            ?? throw new NotFoundException($"Запис Id={id} не знайдено.");
 
-    ValidateNotCancelled(appointment); 
+        ValidateNotCancelled(appointment);
 
-    appointment.Status = AppointmentStatus.Cancelled;
-    await db.SaveChangesAsync();
+        appointment.Status = AppointmentStatus.Cancelled;
+        await db.SaveChangesAsync();
     }
+
+
+    private static AppointmentResponse ToResponse(Appointment a) =>
+        new(a.Id, a.PetId, a.VetName, a.Date, a.Time, a.Reason, a.Status);
 }
