@@ -31,6 +31,18 @@ public class OwnerService(VetClinicDbContext db)
     public async Task<List<OwnerResponse>> GetAllAsync() =>
         await db.Owners.Select(o => ToResponse(o)).ToListAsync();
 
+    public async Task<List<PetResponse>> GetOwnerPetsAsync(Guid ownerId)
+    {
+        var ownerExists = await db.Owners.AnyAsync(o => o.Id == ownerId);
+        if (!ownerExists)
+            throw new NotFoundException($"Власника Id={ownerId} не знайдено.");
+
+        return await db.Pets
+            .Where(p => p.OwnerId == ownerId)
+            .Select(p => new PetResponse(p.Id, p.Name, p.Species, p.Breed, p.BirthDate, p.OwnerId))
+            .ToListAsync();
+    }
+
     public async Task DeleteAsync(Guid id)
     {
         var owner = await db.Owners.FindAsync(id)

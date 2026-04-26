@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj": {}
+    "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj": {}
   },
   "projects": {
-    "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
+    "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj",
+        "projectUniqueName": "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj",
         "projectName": "VetClinic.Api",
-        "projectPath": "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj",
+        "projectPath": "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj",
         "packagesPath": "C:\\Users\\TUF\\.nuget\\packages\\",
-        "outputPath": "e:\\Programming\\project\\src\\VetClinic.Api\\obj\\",
+        "outputPath": "E:\\Programming\\project\\src\\VetClinic.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TUF\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -504,14 +504,14 @@
         }
       }
     },
-    "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj": {
+    "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+        "projectUniqueName": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
         "projectName": "VetClinic.Tests",
-        "projectPath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+        "projectPath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
         "packagesPath": "C:\\Users\\TUF\\.nuget\\packages\\",
-        "outputPath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\obj\\",
+        "outputPath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TUF\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -526,8 +526,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
-                "projectPath": "e:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj"
+              "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj": {
+                "projectPath": "E:\\Programming\\project\\src\\VetClinic.Api\\VetClinic.Api.csproj"
               }
             }
           }

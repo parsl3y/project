@@ -15,6 +15,13 @@ public class PetsController(PetService svc) : ControllerBase
         return result is null ? NotFound() : Ok(result);
     }
 
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(Guid id, [FromBody] UpdatePetRequest req)
+    {
+        var result = await svc.UpdateAsync(id, req);
+        return Ok(result);
+    }
+
     [HttpGet("by-owner/{ownerId:guid}")]
     public async Task<IActionResult> GetByOwner(Guid ownerId) =>
         Ok(await svc.GetByOwnerAsync(ownerId));

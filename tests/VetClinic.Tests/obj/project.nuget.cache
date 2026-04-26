@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MbbHQKG+jho=",
+  "dgSpecHash": "kbI6sQmOUPk=",
   "success": true,
-  "projectFilePath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+  "projectFilePath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TUF\\.nuget\\packages\\autofixture\\4.18.1\\autofixture.4.18.1.nupkg.sha512",
     "C:\\Users\\TUF\\.nuget\\packages\\bogus\\35.6.1\\bogus.35.6.1.nupkg.sha512",
@@ -87,9 +87,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'BouncyCastle.Cryptography' 2.2.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8xfc-gm6g-vgpv",
-      "projectPath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+      "projectPath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
       "warningLevel": 1,
-      "filePath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+      "filePath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
       "libraryId": "BouncyCastle.Cryptography",
       "targetGraphs": [
         "net10.0"
@@ -99,9 +99,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'BouncyCastle.Cryptography' 2.2.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m44j-cfrm-g8qc",
-      "projectPath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+      "projectPath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
       "warningLevel": 1,
-      "filePath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+      "filePath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
       "libraryId": "BouncyCastle.Cryptography",
       "targetGraphs": [
         "net10.0"
@@ -111,9 +111,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "Package 'BouncyCastle.Cryptography' 2.2.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v435-xc8x-wvr9",
-      "projectPath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+      "projectPath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
       "warningLevel": 1,
-      "filePath": "e:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
+      "filePath": "E:\\Programming\\project\\tests\\VetClinic.Tests\\VetClinic.Tests.csproj",
       "libraryId": "BouncyCastle.Cryptography",
       "targetGraphs": [
         "net10.0"

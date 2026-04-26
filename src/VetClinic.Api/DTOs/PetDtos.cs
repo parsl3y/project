@@ -9,6 +9,13 @@ public record CreatePetRequest(
     DateOnly BirthDate,
     Guid OwnerId);
 
+public record UpdatePetRequest(
+    string Name,
+    Species Species,
+    string Breed,
+    DateOnly BirthDate,
+    Guid OwnerId);
+
 public record PetResponse(
     Guid Id,
     string Name,

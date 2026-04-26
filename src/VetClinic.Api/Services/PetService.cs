@@ -40,6 +40,26 @@ public class PetService(VetClinicDbContext db)
             .Select(p => ToResponse(p))
             .ToListAsync();
 
+    public async Task<PetResponse> UpdateAsync(Guid id, UpdatePetRequest req)
+    {
+        var pet = await db.Pets.FindAsync(id)
+            ?? throw new NotFoundException($"Тварину Id={id} не знайдено.");
+
+        // Перевірка: власник повинен існувати
+        var ownerExists = await db.Owners.AnyAsync(o => o.Id == req.OwnerId);
+        if (!ownerExists)
+            throw new NotFoundException($"Власника Id={req.OwnerId} не знайдено.");
+
+        pet.Name = req.Name;
+        pet.Species = req.Species;
+        pet.Breed = req.Breed;
+        pet.BirthDate = req.BirthDate;
+        pet.OwnerId = req.OwnerId;
+
+        await db.SaveChangesAsync();
+        return ToResponse(pet);
+    }
+
     public async Task DeleteAsync(Guid id)
     {
         var pet = await db.Pets.FindAsync(id)

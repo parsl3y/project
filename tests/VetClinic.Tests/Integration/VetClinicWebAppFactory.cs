@@ -74,6 +74,15 @@ public class VetClinicWebAppFactory
         await db.SaveChangesAsync();
     }
 
+    // Очищення тільки Pets для тестів тварин
+    public async Task ResetPetsAsync()
+    {
+        using var scope = Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<VetClinicDbContext>();
+        db.Pets.RemoveRange(db.Pets);
+        await db.SaveChangesAsync();
+    }
+
     // Повне скидання з перестворенням схеми
     public async Task ResetDatabaseAsync()
     {

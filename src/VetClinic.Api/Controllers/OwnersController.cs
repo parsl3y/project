@@ -26,6 +26,13 @@ public class OwnersController(OwnerService svc) : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
     }
 
+    [HttpGet("{id:guid}/pets")]
+    public async Task<IActionResult> GetOwnerPets(Guid id)
+    {
+        var pets = await svc.GetOwnerPetsAsync(id);
+        return Ok(pets);
+    }
+
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> Delete(Guid id)
     {
